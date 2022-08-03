@@ -14,17 +14,18 @@ int[,] GetMatrix(int m, int n, int min, int max)
     return matrix;
 }
 
-void ChangeElemenOnEvenPositiont(int[,] col, int rowfind, int columnfind)
+void FindElement(int[,] col, int rowfind, int columnfind)
 {
     for (int i = 0; i < col.GetLength(0); i++)
     {
         for (int j = 0; j < col.GetLength(1); j++)
         {
-            if(i==rowfind && j==columnfind) Console.WriteLine(col[i,j]);
-            else System.Console.WriteLine("Нет");             
-        } 
-                       
+            if(i==rowfind && j==columnfind) 
+            Console.WriteLine(col[i,j]);      
+        }                        
     }
+    if(rowfind < 0 | rowfind >col.GetLength(0)-1 | columnfind<0 | columnfind>col.GetLength(1)-1) 
+    Console.WriteLine("Такого элемента нет в массиве "); 
 }
 
 void PrintMatrix(int[,] mtrx)
@@ -39,11 +40,12 @@ void PrintMatrix(int[,] mtrx)
     }
 }
 
-int[,] array = GetMatrix(3,4, 1, 10); // Вызвали заполнение конкретного массива array
-PrintMatrix(array); // Распечатали массив array, заполненный случайными числами
+int[,] array = GetMatrix(3,4, 1, 10); 
+PrintMatrix(array); 
+
 System.Console.WriteLine();
 Console.WriteLine("Введите индекс строки: ");
 int rowfind = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите индекс столбца: ");
 int columnfind = Convert.ToInt32(Console.ReadLine());
-ChangeElemenOnEvenPositiont(array, rowfind, columnfind); 
+FindElement(array, rowfind, columnfind); 
