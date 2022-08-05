@@ -13,7 +13,7 @@ int[,] GetMatrix(int m, int n)
     return matrix;  
 }
 
-void FindElement(int[,] col)
+void ArithmeticMeanOfTheColumns(int[,] col)
 {
     double[] sum = new double[col.GetLength(1)];
     for (int i = 0; i < col.GetLength(1); i++)
@@ -46,4 +46,4 @@ void PrintMatrix(int[,] mtrx)
 
 int[,] array = GetMatrix(3,4); 
 PrintMatrix(array); 
-FindElement(array);
+ArithmeticMeanOfTheColumns(array);
