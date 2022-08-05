@@ -10,28 +10,26 @@ int[,] GetMatrix(int m, int n)
             matrix[i,j] = rnd.Next(1, 10); 
         }
     }
-    return matrix;
+    return matrix;  
 }
 
 void FindElement(int[,] col)
 {
-    int size = col.GetLength(1);
-    int[] sum = new int[size];
+    double[] sum = new double[col.GetLength(1)];
     for (int i = 0; i < col.GetLength(1); i++)
     {
         for (int j = 0; j < col.GetLength(0); j++)
         {
             sum[i] += col[j,i];
-            System.Console.WriteLine(sum[i]);
         }   
     } 
     System.Console.WriteLine();
-    for (int i = 0; i < col.Length; i++)
+    for (int i = 0; i < col.GetLength(1); i++)
     {
-        int result = 0;
-        result = sum[i]/(col.GetLength(0));
-        System.Console.WriteLine(result);
-    }
+        double result = 0;
+        result = Math.Round(sum[i]/col.GetLength(0), 1);
+        System.Console.Write($"{result}; ");
+        }    
 }                     
                              
 void PrintMatrix(int[,] mtrx)
@@ -48,6 +46,4 @@ void PrintMatrix(int[,] mtrx)
 
 int[,] array = GetMatrix(3,4); 
 PrintMatrix(array); 
-
 FindElement(array);
-
